@@ -1,0 +1,331 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a237e, #0e1124, #0d093f);
+  color: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(0,0,0,0.6);
+  margin-bottom: 60px;
+  animation: pulse 2s infinite;
+}
+
+.start-btn {
+  text-decoration: none;
+  padding: 15px 50px;
+  background-color: #7e0c13;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #94040e;
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 59, 59, 0.6);
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+
+.head.active {
+    position: absolute;
+    right: calc(-50% - 14px);
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #df0303;
+    box-shadow: 0 8px 30px rgba(255, 79, 79, 0.6);
+}
+
+.body.active{
+    position: absolute;
+    top: calc(22px + 30px + 2px);
+    right: calc(-50%);
+    width: 1.5px;
+    height: 45px;
+    background: #df0303;
+    box-shadow: 0 8px 30px rgba(255, 79, 79, 0.6);
+}
+
+.left-hand.active {
+    position: absolute;
+    top: calc(22px + 30px + 2px);
+    right: calc(-35%);
+    width: 1.5px;
+    height: 28px;
+    background: #df0303;
+    transform: rotate(30deg);
+    box-shadow: 0 8px 30px rgba(255, 79, 79, 0.6);
+}
+
+.right-hand.active {
+    position: absolute;
+    top: calc(22px + 30px + 2px);
+    right: calc(-50% - 15%);
+    width: 1.5px;
+    height: 28px;
+    background: #df0303;
+    transform: rotate(-30deg);
+    box-shadow: 0 8px 30px rgba(255, 79, 79, 0.6);
+}
+
+.left-leg.active {
+    position: absolute;
+    top: calc(22px + 30px + 45px);
+    right: calc(-35%);
+    width: 1.5px;
+    height: 28px;
+    background: #df0303;
+    transform: rotate(30deg);
+    box-shadow: 0 8px 30px rgba(255, 79, 79, 0.6);
+}
+
+.right-leg.active {
+    position: absolute;
+    top: calc(22px + 30px + 45px);
+    right: calc(-50% - 15%);
+    width: 1.5px;
+    height: 28px;
+    background: #df0303;
+    transform: rotate(-30deg);
+    box-shadow: 0 8px 30px rgba(255, 79, 79, 0.6);
+}
+
+.letter-container{
+    border: 1px solid #fff;
+    display: inline;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+}
+
+.letter-container span{
+    display: block;
+}
+
+.guess-letter{
+    opacity: 0;
+    transition: all .2 ease;
+}
+
+.guess-letter.active {
+    opacity: 1;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.line button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #e5e7eb; /* light gray */
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+@media only screen and (max-width: 600px) {
+  .line{
+    gap: 3px;
+  }
+  .line button {
+    padding: 10px 16px;
+    font-size: .8em;
+  }
+}
+
+.line button:hover {
+  background-color: #d1d5db; /* darker gray */
+}
+
+.line button:active {
+  background-color: #9ca3af;
+  transform: scale(0.95);
+}
+
+.word {
+    height: 70px;
+    border-bottom: 2px solid #fff;
+    padding: .5em;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto 15vh;
+    font-size: 2em;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+.guess-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.keyboard-controls button{
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.keyboard-controls{
+    display: flex;
+    gap: 1em;
+    margin: 5vh 0;
+}
+
+.done-btn{
+    background-color: rgb(3, 95, 3);
+    color: #fff;
+    transition: all .2s ease;
+}
+
+.done-btn:hover{
+    background-color: rgb(56, 97, 56);
+}
+
+.done-btn:active {
+    background-color: rgb(26, 84, 26);
+    transform: scale(0.95);
+}
+
+.cancel-btn {
+    background-color: rgb(148, 15, 15);
+    color: #fff;
+    transition: all .2s ease;
+}
+
+.cancel-btn:hover{
+    background-color: rgb(97, 13, 13);
+}
+
+.cancel-btn:active{
+    background-color: rgb(120, 26, 26);
+    transform: scale(0.95);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* dark backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* stays above everything */
+}
+
+.modal-container {
+  background: #fff;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.modal-container h1 {
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.modal-container a {
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-container a:first-child {
+  background: #103881;
+  color: white;
+}
+
+.modal-container a:last-child {
+  background: #f44336;
+  color: white;
+}
+
+.modal-container a:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.error-letters{
+  height: 60px;
+  display: flex;
+  gap: 10px;
+  max-width: 200px;
+  font-size: 1.2em;
+  
+}
